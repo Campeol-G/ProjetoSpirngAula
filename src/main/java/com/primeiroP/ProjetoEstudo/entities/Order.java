@@ -5,6 +5,7 @@ import java.time.Instant;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.primeiroP.ProjetoEstudo.entities.enums.OrderStatus;
 
 import jakarta.annotation.Generated;
 import jakarta.persistence.Entity;
@@ -28,6 +29,8 @@ public class Order implements Serializable {
   // pra garantir q o formato seja no ISO8601
   @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GMT")
   private Instant date;
+
+  private Integer orderStatus;
 
   @ManyToOne
   @JoinColumn(name = "client_id")
@@ -82,12 +85,23 @@ public class Order implements Serializable {
     this.client = client;
   }
 
+  public OrderStatus getOrderStatus() {
+    return OrderStatus.valueOf(orderStatus);
+  }
+
+  public void setOrderStatus(OrderStatus orderStatus) {
+    if (orderStatus != null) {
+      this.orderStatus = orderStatus.getCode();
+    }
+  }
+
   public Order() {
   }
 
-  public Order(Integer id, Instant date, User client) {
+  public Order(Integer id, Instant date, OrderStatus orderStatus, User client) {
     this.client = client;
     this.date = date;
+    setOrderStatus(orderStatus);
     this.id = id;
   }
 }
