@@ -30,4 +30,19 @@ public class UserService {
   public void delete(Integer id) {
     repository.deleteById(id);
   }
+
+  public User update(Integer id, User obj) {
+    // getReferenceById apenas instancia esse usuario e o deixa sob vigia do JPA,
+    // para nos conseguirmos trabalhar com ele, sem necessariamente entrar em
+    // contato direto com o banco de dados
+    User entity = repository.getReferenceById(id);
+    updateData(entity, obj);
+    return repository.save(entity);
+  }
+
+  private void updateData(User u1, User u2) {
+    u1.setName(u2.getName());
+    u1.setEmail(u2.getEmail());
+    u1.setPhone(u2.getPhone());
+  }
 }
