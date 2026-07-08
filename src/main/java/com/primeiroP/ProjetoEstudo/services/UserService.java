@@ -12,6 +12,8 @@ import com.primeiroP.ProjetoEstudo.repositories.UserRepository;
 import com.primeiroP.ProjetoEstudo.services.exceptions.DataBaseException;
 import com.primeiroP.ProjetoEstudo.services.exceptions.ResourceNotFoundException;
 
+import jakarta.persistence.EntityNotFoundException;
+
 @Service
 public class UserService {
 
@@ -46,9 +48,13 @@ public class UserService {
     // getReferenceById apenas instancia esse usuario e o deixa sob vigia do JPA,
     // para nos conseguirmos trabalhar com ele, sem necessariamente entrar em
     // contato direto com o banco de dados
-    User entity = repository.getReferenceById(id);
-    updateData(entity, obj);
-    return repository.save(entity);
+    try {
+      User entity = repository.getReferenceById(id);
+      updateData(entity, obj);
+      return repository.save(entity);
+    } catch (EntityNotFoundException e) {
+      throw new ResourceNotFoundException(id);
+    }
   }
 
   private void updateData(User u1, User u2) {
