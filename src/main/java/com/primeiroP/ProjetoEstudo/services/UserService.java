@@ -3,10 +3,13 @@ package com.primeiroP.ProjetoEstudo.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.orm.jpa.hibernate.HibernateExceptionTranslator;
 import org.springframework.stereotype.Service;
 
 import com.primeiroP.ProjetoEstudo.entities.User;
 import com.primeiroP.ProjetoEstudo.repositories.UserRepository;
+import com.primeiroP.ProjetoEstudo.services.exceptions.DataBaseException;
 import com.primeiroP.ProjetoEstudo.services.exceptions.ResourceNotFoundException;
 
 @Service
@@ -29,7 +32,14 @@ public class UserService {
   }
 
   public void delete(Integer id) {
-    repository.deleteById(id);
+    if (!repository.existsById(id)) {
+      throw new ResourceNotFoundException(id);
+    }
+    try {
+      repository.deleteById(id);
+    } catch (DataIntegrityViolationException e) {
+      throw new DataBaseException(e.getMessage());
+    }
   }
 
   public User update(Integer id, User obj) {
