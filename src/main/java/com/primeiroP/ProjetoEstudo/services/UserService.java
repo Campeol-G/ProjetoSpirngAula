@@ -22,4 +22,8 @@ public class UserService {
     return repository.findById(id).get();
     // o .get no final dessa expressao serve pra rentornar o tipo do Optional
   }
+
+  public User insert(User obj) {
+    return repository.save(obj);
+  }
 }
