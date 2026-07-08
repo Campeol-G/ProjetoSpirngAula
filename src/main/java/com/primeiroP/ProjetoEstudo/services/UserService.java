@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.primeiroP.ProjetoEstudo.entities.User;
 import com.primeiroP.ProjetoEstudo.repositories.UserRepository;
+import com.primeiroP.ProjetoEstudo.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class UserService {
@@ -19,7 +20,7 @@ public class UserService {
   }
 
   public User findById(Integer id) {
-    return repository.findById(id).get();
+    return repository.findById(id).orElseThrow(() -> new ResourceNotFoundException(id));
     // o .get no final dessa expressao serve pra rentornar o tipo do Optional
   }
 
