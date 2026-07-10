@@ -1,0 +1,3 @@
+Repositories eh o tipo de interface q vai ficar responsavel por fazer as operacoes com o Banco de dados, usando o JPA, e por padrao, ja vem implementado diversas metodos, a implementecao desses metodos sao feitas pelo Spring em runtime, por isso nao eh necessario implementar nenhum dos metodos padroes manualmente, esses metodos padroes q sao oriundos da classe:
+JpaReposity<T, I>
+sendo T, para o tipo de 
