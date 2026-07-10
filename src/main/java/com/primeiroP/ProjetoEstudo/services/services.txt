@@ -1,0 +1,7 @@
+eh uma camada extra entre o repository e o resource com alguns objetivos principais, tais quais:
+
+implementar os metodos do repository, seja eles padrao ou personalizado
+
+implementar as regras de negocio
+
+deixar o resource com a sua funcao e unicamente com ela, assim, colocando toda a logica do negocio nessa camada
