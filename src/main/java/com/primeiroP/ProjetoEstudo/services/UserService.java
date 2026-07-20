@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.orm.jpa.hibernate.HibernateExceptionTranslator;
 import org.springframework.stereotype.Service;
 
 import com.primeiroP.ProjetoEstudo.entities.User;

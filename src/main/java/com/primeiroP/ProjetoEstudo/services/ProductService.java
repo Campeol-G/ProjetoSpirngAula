@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.primeiroP.ProjetoEstudo.entities.Product;
 import com.primeiroP.ProjetoEstudo.repositories.ProductRepository;
+import com.primeiroP.ProjetoEstudo.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class ProductService {
@@ -15,7 +16,7 @@ public class ProductService {
   private ProductRepository repository;
 
   public Product findById(Integer id) {
-    return repository.findById(id).get();
+    return repository.findById(id).orElseThrow(() -> new ResourceNotFoundException(id));
   }
 
   public List<Product> findAll() {

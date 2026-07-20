@@ -33,7 +33,7 @@ public class UserResource {
 
   // o value pra dizer q a URL vai ter um parametro
   // a requisicao aceita um ID dentro da URL
-  @GetMapping(value = { "/{id}" })
+  @GetMapping(value = "/{id}")
   public ResponseEntity<User> findByID(@PathVariable Integer id) {
     // o path PathVariable eh pra fazer essa funcao pegar o id da URL e usar pra
     // fazer a busca no DB

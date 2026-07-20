@@ -9,9 +9,10 @@ import jakarta.persistence.Embeddable;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
+// pk = primary key (chave primária composta do item de pedido)
 @Embeddable
 public class OrderItemPK implements Serializable {
-  // pk = primary key
+
   private static final long serialVersionUID = 1L;
 
   @ManyToOne
@@ -68,4 +69,5 @@ public class OrderItemPK implements Serializable {
   public void setProduct(Product product) {
     this.product = product;
   }
+
 }

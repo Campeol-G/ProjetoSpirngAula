@@ -21,6 +21,7 @@ import jakarta.persistence.Table;
 public class Product implements Serializable {
 
   private static final long serialVersionUID = 1L;
+
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
@@ -38,18 +39,18 @@ public class Product implements Serializable {
 
   @JsonIgnore
   public Set<Order> getOrders() {
-    Set<Order> or = new HashSet<>();
-    for (OrderItem o : items) {
-      or.add(o.getOrder());
+    Set<Order> orders = new HashSet<>();
+    for (OrderItem item : items) {
+      orders.add(item.getOrder());
     }
-    return or;
+    return orders;
   }
 
   public Set<Category> getCategories() {
     return categories;
   }
 
-  public static long getSerialversionuid() {
+  public static long getSerialVersionUID() {
     return serialVersionUID;
   }
 

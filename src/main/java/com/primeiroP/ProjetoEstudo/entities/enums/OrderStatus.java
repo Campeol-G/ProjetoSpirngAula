@@ -19,16 +19,10 @@ public enum OrderStatus {
     return code;
   }
 
+  // Converte um código (int) no enum correspondente.
+  // Percorre os valores do enum e retorna aquele cujo código coincide com o informado.
   public static OrderStatus valueOf(int code) {
-    // for each pra percorrer todos os enums, o .values() eh um vetor com os enums,
-    // e, provavelmente o index dele corresponde ao codigo q nos colocamos ali em
-    // cima
-    //
-    // para cada OrderStatus(a representacao em int dele) no vetor de OrderStatus
-    // faca:
     for (OrderStatus value : OrderStatus.values()) {
-      // verifica se o value(o OrderStatus em representado em int) eh igual ao index q
-      // foi passado no code
       if (value.getCode() == code) {
         return value;
       }

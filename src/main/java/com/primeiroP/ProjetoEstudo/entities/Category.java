@@ -16,6 +16,7 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "tb_categories")
 public class Category implements Serializable {
+
   private static final long serialVersionUID = 1L;
 
   @Id
@@ -79,4 +80,5 @@ public class Category implements Serializable {
       return false;
     return true;
   }
+
 }
