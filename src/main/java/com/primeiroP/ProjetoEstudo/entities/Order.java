@@ -1,6 +1,5 @@
 package com.primeiroP.ProjetoEstudo.entities;
 
-import java.io.Serializable;
 import java.time.Instant;
 import java.util.HashSet;
 import java.util.Set;
@@ -21,9 +20,8 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "tb_orders")
-public class Order implements Serializable {
+public class Order {
 
-  private static final long serialVersionUID = 1L;
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;

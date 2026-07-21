@@ -1,7 +1,5 @@
 package com.primeiroP.ProjetoEstudo.entities.pk;
 
-import java.io.Serializable;
-
 import com.primeiroP.ProjetoEstudo.entities.Order;
 import com.primeiroP.ProjetoEstudo.entities.Product;
 
@@ -11,9 +9,7 @@ import jakarta.persistence.ManyToOne;
 
 // pk = primary key (chave primária composta do item de pedido)
 @Embeddable
-public class OrderItemPK implements Serializable {
-
-  private static final long serialVersionUID = 1L;
+public class OrderItemPK {
 
   @ManyToOne
   @JoinColumn(name = "order_id")

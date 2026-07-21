@@ -1,6 +1,5 @@
 package com.primeiroP.ProjetoEstudo.entities;
 
-import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -18,9 +17,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "tb_product")
-public class Product implements Serializable {
-
-  private static final long serialVersionUID = 1L;
+public class Product {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -48,10 +45,6 @@ public class Product implements Serializable {
 
   public Set<Category> getCategories() {
     return categories;
-  }
-
-  public static long getSerialVersionUID() {
-    return serialVersionUID;
   }
 
   public Integer getId() {

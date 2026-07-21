@@ -1,6 +1,5 @@
 package com.primeiroP.ProjetoEstudo.entities;
 
-import java.io.Serializable;
 import java.time.Instant;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -15,9 +14,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "tb_payment")
-public class Payment implements Serializable {
-
-  private static final long serialVersionUID = 1L;
+public class Payment {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)

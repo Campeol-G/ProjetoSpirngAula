@@ -1,7 +1,5 @@
 package com.primeiroP.ProjetoEstudo.entities;
 
-import java.io.Serializable;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.primeiroP.ProjetoEstudo.entities.pk.OrderItemPK;
 
@@ -11,9 +9,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "tb_order_item")
-public class OrderItem implements Serializable {
-
-  private static final long serialVersionUID = 1L;
+public class OrderItem {
 
   @EmbeddedId
   private OrderItemPK id = new OrderItemPK();
